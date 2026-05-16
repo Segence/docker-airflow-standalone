@@ -16,12 +16,12 @@ jobs:
     - uses: actions/checkout@v3
     - name: Lint Dockerfile
       id: hadolint
-      uses: hadolint/hadolint-action@v3.1.0
+      uses: hadolint/hadolint-action@v3.3.0
       with:
         dockerfile: ./${{ matrix.classifier }}/Dockerfile
         ignore: DL3008,SC2086
     - name: Update Pull Request
-      uses: actions/github-script@v6
+      uses: actions/github-script@v9
       if: github.event_name == 'pull_request'
       with:
         script: |

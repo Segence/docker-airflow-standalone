@@ -30,7 +30,7 @@ RUN set -ex \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
-    && apt-get install -yqq --no-install-recommends \
+    && apt-get install -yqq --no-install-recommends  --allow-downgrades \
         $buildDeps \
         freetds-bin=1.3.17+ds-2 \
         build-essential=12.9 \
@@ -111,7 +111,7 @@ ENV PATH $PATH:/usr/local/spark/bin
 # Finished SPARK files and variables
 
 COPY script/entrypoint.sh /entrypoint.sh
-COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow/airflow.cfg
+COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_HOME} && \
     chmod +x /entrypoint.sh
