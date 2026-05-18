@@ -1,20 +1,23 @@
-name: Publish Docker image
+name: publish
 on:
   release:
     types: [published]
 env:
   DOCKER_REGISTRY: segence
-  DOCKER_IMAGE_NAME: ${{ github.event.repository.name }}
+  REPOSITORY_NAME: ${{ github.event.repository.name }}
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        classifier: [spark]
+        classifier: [kafka]
     steps:
     - name: Check out the repo
       uses: actions/checkout@v6
+    - name: Set image name
+      run: |
+        echo "DOCKER_IMAGE_NAME=${REPOSITORY_NAME#docker-}" >> "$GITHUB_ENV"
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v4
     - name: Log in to Docker Hub
