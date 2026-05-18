@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.0 - 2026-05-18
+#### Features
+- Publish action (#4) - (df08324) - Rob Vadai
+
+- - -
+
 ## v0.4.0 - 2026-05-16
 #### Features
 - new release (#3) - (0bea892) - Rob Vadai
