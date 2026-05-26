@@ -6,8 +6,10 @@ RUN pip install --no-cache-dir -r /requirements.txt
 
 USER root
 
-RUN apt-get update && apt-get install -y \
-    wget
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    wget \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY script/entrypoint.sh /entrypoint.sh
 USER airflow
