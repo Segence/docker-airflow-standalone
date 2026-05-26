@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.5.1 - 2026-05-26
+#### Bug Fixes
+- fixing image (#5) - (97a6871) - Rob Vadai
+
+- - -
+
 ## v0.5.0 - 2026-05-18
 #### Features
 - Publish action (#4) - (df08324) - Rob Vadai
